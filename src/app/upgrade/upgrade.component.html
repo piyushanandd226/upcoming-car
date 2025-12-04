@@ -1,0 +1,202 @@
+
+ <div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>  
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+<header class="">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><h3>UPCOMING<em>CAR</em></h3></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/addcar']">New Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          &nbsp;&nbsp;  &nbsp;&nbsp;
+         <li class="nav-item">
+   
+         <!--- <a [routerLink]="['/registration']" class="nav-link">Register</a>-->
+          </li>
+        </ul>
+      </div>
+      
+      <div >
+        <ul>
+          <li><a href="#">Log in</a></li>
+          <li><a [routerLink]="['/registration']" >Sign Up</a></li>
+          </ul>
+       
+      </div>
+     
+    </div>
+  </nav>
+</header>
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+    <div class="wrapper wrapper--w960">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Update Car</h2>
+               <!--<form #carform ="ngForm" id="login-form" class="form" (ngSubmit)="addCar()" >-->
+                     <form (ngSubmit) = "onSubmit()" >
+                  
+                        <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                               <!--<input class="input--style-2" type="text" placeholder="Id" name="carId" [(ngModel)]="car.carId">-->
+                                
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Name" name="carName"  [(ngModel)]="car.carName">
+                            </div>
+                            </div>
+                    
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="StartManufcat" bsDatepicker="startManufcat" name="startManufcat" [(ngModel)]="car.startManufcat">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="carType" [(ngModel)]="car.carType">
+                                        <option disabled="disabled" selected="selected">CarType</option>
+                                        <option>Non Ac</option>
+                                        <option>AC</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="EndManufat" bsDatepicker="endManufat" name="endManufat" [(ngModel)]="car.endManufat">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="color" [(ngModel)]="car.color">
+                                        <option disabled="disabled" selected="selected">Color</option>
+                                        <option>Yellow</option>
+                                        <option>Red</option>
+                                        <option>Green</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="StartReg" bsDatepicker="startReg" name="startReg"  [(ngModel)]="car.startReg">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Price" name="Price"  [(ngModel)]="car.price">
+                            </div>
+                            </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="EndReg" bsDatepicker="endReg" name="endReg"  [(ngModel)]="car.endReg">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="DiscountOnReg" name="discountOnReg" [(ngModel)]="car.dicountOnRegistration">
+                            </div>
+                            </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2 js-datepicker" type="text" placeholder="Deliverydate" bsDatepicker="deliverydate" name="deliverydate" [(ngModel)]="car.deliverydate">
+                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input class="input--style-2" type="text" placeholder="Offer" name="offer" [(ngModel)]="car.offer">
+   
+                                </div>
+                            </div>
+                        </div>
+                           <!--<div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="image" name="image_id" [(ngModel)]="car.image_id">
+       
+                                    </div>
+                                </div>-->
+                             <!---- <div class="row row-space" >
+                                    <div class="col-2"  >
+                                        <div class="input-group" >
+                                            <br *ngIf="car.carId == null">
+                                           <input type="file" (change)="onFileChanged($event)" >
+                                            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+                                        </div>
+                                        <br><br>
+                                    </div>
+                                </div>-->
+                                
+                                                <div class="p-t-30">
+                                             <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                                            <!--  <button type="button" class="btn btn--radius btn--green" (click)="saveCar()">Submit</button>-->
+                                        </div>
+                </form>
+                
+             <!--- <div class="row row-space"><br>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <input type="file" (change)="onFileChanged($event)"> 
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <input type="button" (click)="onUpload()" value="UPload">
+                        </div>
+
+                        </div>
+                
+                </div>-->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+
+// Custom Material theme.
+// The original custom theming used the material theming mixins which
+// can be sensitive to Sass loader and Material versions. To ensure the
+// dev server compiles reliably, use the prebuilt Indigo-Pink theme.
+// If you want to restore a custom theme, replace this import with the
+// theming mixins (see https://material.angular.io/guide/theming).
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+

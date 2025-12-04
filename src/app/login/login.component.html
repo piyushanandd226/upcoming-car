@@ -1,0 +1,87 @@
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>  
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+<header class="">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><h2>UPCOMING<em>CAR</em></h2></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/addcar']">New Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <!--<li class="nav-item">
+           <a [routerLink]="['/registration']" class="nav-link">Register</a>
+          </li>-->
+        </ul>
+        
+      </div>
+      <div >
+        <ul>
+            &nbsp;&nbsp;
+            <li><a href="#">Log in</a></li>
+          <li><a [routerLink]="['/registration']">Sign Up</a></li>
+          </ul>
+       
+      </div>
+     
+    </div>
+  </nav>
+</header>
+
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form #loginform ="ngForm" id="login-form" class="form" (ngSubmit)="doLogin()" >
+                             <small class="text-danger">{{msg}}</small>
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username"   id="username" class="form-control" [(ngModel)]="user.username" required #username="ngModel" [ngClass]="{
+                                    'is-invalid': loginform.submitted && username.invalid  }">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" required id="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
+                                 [ngClass]="{ 'is-invalid': loginform.submitted && password.invalid }" required minlength="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a [routerLink]="['/registration']" class="text-info">Register here</a><br>
+                                <a [routerLink]="['/notification']" class="text-info">Notfication</a><br>
+                                <a [routerLink]="['/addcar']" class="text-info">AddCar</a>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

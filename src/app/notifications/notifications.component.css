@@ -1,0 +1,21 @@
+/* Simple styles for notifications list */
+.notif-card .card-body {
+	background: #fff;
+}
+.notif-card h6 {
+	margin: 0;
+	font-weight: 600;
+}
+.notif-card p {
+	margin: 0;
+}
+
+@media (max-width: 767px) {
+	#main-content { padding-left: 12px; padding-right: 12px; }
+}
+
+/* small polish */
+.card.p-3 { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.notif-card { transition: background .15s ease; }
+.notif-card:hover { background: #fbfbfb; }
+.text-muted.small { font-size: 0.75rem; }

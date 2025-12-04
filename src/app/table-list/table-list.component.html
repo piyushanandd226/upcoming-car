@@ -1,0 +1,99 @@
+ <!-- ***** Preloader Start ***** -->
+ <div id="preloader">
+	<div class="jumper">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</div>  
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+<header class="">
+  <nav class="navbar navbar-expand-lg">
+	<div class="container">
+	  <a class="navbar-brand" href="index.html"><h2>UPCOMING<em>CAR</em></h2></a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto">
+		  <li class="nav-item">
+			<a class="nav-link" href="index.html">Home
+			  <span class="sr-only">(current)</span>
+			</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="about.html">About Us</a>
+		  </li>
+		  <li class="nav-item active">
+			<a class="nav-link" [routerLink]="['/addcar']">New Car</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="contact.html">Contact Us</a>
+		  </li>
+		  <li class="nav-item">
+		  <a [routerLink]="['/notification']" class="nav-link">Inbox</a>
+		  </li>
+		</ul>
+		
+	  </div>
+	  <div >
+		<ul>
+		  <li><a href="#">Log in</a></li>
+		  <li><a [routerLink]="['/registration']" >Sign Up</a></li>
+		  </ul>
+	   
+	  </div>
+	
+	</div>
+  </nav>
+</header>
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>CarID</th>
+            <th> Name </th>
+            <th>Price</th>
+            <th> Photo </th>
+        </tr>
+    </thead>
+    <tbody>
+		
+        <tr *ngFor = "let car of cars" >
+            <td> {{ car.carId }} </td>
+            <td> {{ car.carName }} </td>
+            <td> {{ car.price }} </td>
+			<!--<td><img alt="" th:src="*{'data:image/jpeg;base64,'+{cars.imagemodel}}" style="width: 100px;height: 100px;"></td>-->
+			<br >
+          <td ><img src="/assets/img/car_0.jpg" height="100px" width="100px">
+           </td>
+            <td>
+				<button (click) = "updateCar(car.carId)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteCar(car.carId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "carDetails(car.carId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!--<div class="container row">
+
+	<div class="col-md-12">
+
+		<div *ngIf=imagemodel.retrievedImage>
+
+			<img [src]="imagemodel.retrievedImage">
+
+		</div>
+		<td><img alt="" th:src="*{'data:image/jpeg;base64,'+{cars.imagemodel}}" style="width: 100px;height: 100px;"></td>	
+
+	</div>
+
+-->
+
+<!--<button (click) = "updateCar(car.carId)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteCar(car.carId" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "carDetails(car.carId)" class = "btn btn-info" style="margin-left: 10px"> View</button>-->
