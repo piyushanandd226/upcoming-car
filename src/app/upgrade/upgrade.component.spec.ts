@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { UpgradeComponent } from './upgrade.component';
 import { SharedTestingModule } from '../../test-helpers/shared-testing.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -7,7 +7,7 @@ describe('UpgradeComponent', () => {
   let component: UpgradeComponent;
   let fixture: ComponentFixture<UpgradeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedTestingModule],
       declarations: [UpgradeComponent],
@@ -18,8 +18,9 @@ describe('UpgradeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UpgradeComponent);
     component = fixture.componentInstance;
-    // avoid running change detection / ngOnInit for isolation while debugging
-    // fixture.detectChanges();
+
+    // optionally skip ngOnInit logic if needed
+    fixture.detectChanges();
   });
 
   it('should create', () => {
