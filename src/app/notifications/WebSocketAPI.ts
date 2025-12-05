@@ -8,6 +8,10 @@ export class WebSocketAPI {
     topic: string = "/topic/user";
     stompClient: any;
     notifiComponent: NotificationsComponent;
+    reconnectDelay = 5000; // initial delay
+    maxReconnectDelay = 60000; // cap
+    reconnectAttempts = 0;
+    maxReconnectAttempts = 12;
 
     constructor(notifiComponent: NotificationsComponent){
         this.notifiComponent = notifiComponent;
@@ -19,10 +23,13 @@ export class WebSocketAPI {
             this.stompClient = Stomp.over(websocket);
             const _this = this;
             _this.stompClient.connect({}, function (frame) {
+                console.log('WebSocket connected');
+                // reset reconnect state on successful connection
+                _this.reconnectAttempts = 0;
+                _this.reconnectDelay = 5000;
                 _this.stompClient.subscribe(_this.topic, function (sdkEvent) {
                     _this.onMessageReceived(sdkEvent);
                 });
-                //_this.stompClient.reconnect_delay = 2000;
             }, this.errorCallBack.bind(this));
         } catch (e) {
             console.warn("WebSocket connection failed (expected in test environment):", e.message);
@@ -44,9 +51,17 @@ export class WebSocketAPI {
     errorCallBack(error :any) {
         console.log("errorCallBack -> " + error)
         try {
+            // exponential backoff with cap
+            if (this.reconnectAttempts >= this.maxReconnectAttempts) {
+                console.warn('Max reconnect attempts reached');
+                return;
+            }
+            const delay = Math.min(this.reconnectDelay * Math.pow(1.5, this.reconnectAttempts), this.maxReconnectDelay);
+            this.reconnectAttempts++;
+            console.log(`WebSocket reconnect attempt #${this.reconnectAttempts} in ${delay}ms`);
             setTimeout(() => {
                 this._connect();
-            }, 5000);
+            }, delay);
         } catch (e) {
             console.warn("Error in errorCallBack:", e.message);
         }

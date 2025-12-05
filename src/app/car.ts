@@ -19,6 +19,7 @@ export class Car {
      deliverydate:Date;
     // imagemodel:Imagemodel;
     image_id:number;
+    imageName?: string;
      
      //picByte: string;
     //retrievedImage: string;

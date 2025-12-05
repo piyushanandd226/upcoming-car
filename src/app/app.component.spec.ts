@@ -24,11 +24,23 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('upcoming-car');
   });
 
-  it('should render title', () => {
+  it('should render the app container', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    // The app template only contains a router-outlet; assert the outlet is present instead
-    expect(compiled.querySelector('router-outlet')).not.toBeNull();
+    // Check that the app container is present
+    expect(compiled.querySelector('.app-container')).not.toBeNull();
+  });
+
+  it('should initialize with login section visible', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.isLoggedIn).toBeFalsy();
+  });
+
+  it('should have empty user object', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.user).toEqual({});
   });
 });

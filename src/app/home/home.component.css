@@ -1,64 +1,169 @@
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
 .notification {
-  background-color: #555;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 10px 14px;
   position: relative;
   display: inline-block;
-  border-radius: 1.5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .notification:hover {
-  background: red;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
 
 .notification .badge {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 5px 10px;
+  top: -8px;
+  right: -8px;
+  padding: 6px 10px;
   border-radius: 50%;
-  background-color: red;
+  background: #ff4757;
   color: white;
+  font-size: 12px;
+  font-weight: 600;
 }
+
 
 /* Hero styles */
 .hero {
-  background: url('/assets/img/sports-car.jpeg') center/cover no-repeat;
+  background: url('/assets/img/sports-car.jpeg') center/cover no-repeat fixed;
   color: #fff;
   position: relative;
-  padding: 120px 0;
+  padding: 140px 0;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
 }
+
 .hero-overlay {
-  background: rgba(0,0,0,0.45);
-  padding: 60px 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.35) 100%);
+  padding: 80px 0;
 }
+
 .hero-content h1 {
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 16px;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
+
 .hero-content .lead {
-  margin-bottom: 20px;
-  color: rgba(255,255,255,0.9);
+  margin-bottom: 30px;
+  color: rgba(255,255,255,0.95);
+  font-size: 1.25rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-ctas .btn {
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.hero-ctas .btn-primary {
+  background: #007bff;
+}
+
+.hero-ctas .btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.35);
+}
+
+.hero-ctas .btn-outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.hero-ctas .btn-outline-light:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+  transform: translateY(-2px);
 }
 
 /* Features */
+.features {
+  background: #f8f9fa;
+}
+
+.feature-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
 .feature-card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2rem;
 }
+
 .feature-card .card-title {
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.feature-card .card-text {
+  color: #666;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.feature-card .btn-primary {
+  align-self: center;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.feature-card .btn-primary:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 767px) {
-  .hero { padding: 80px 0; }
+  .hero { padding: 80px 0; min-height: auto; }
+  .hero-overlay { padding: 60px 0; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content .lead { font-size: 1rem; }
   .hero-content { padding: 0 12px; }
+  .hero-ctas { gap: 8px; }
+  .feature-card .card-body { padding: 1.5rem; }
 }
 

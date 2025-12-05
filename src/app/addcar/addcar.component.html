@@ -57,6 +57,8 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Adding Car</h2>
+                <div *ngIf="msg" class="alert alert-danger" role="alert">{{ msg }}</div>
+                <div *ngIf="uploadedFileName" class="alert alert-info" role="alert">Selected file: {{ uploadedFileName }}</div>
                <!--<form #carform ="ngForm" id="login-form" class="form" (ngSubmit)="addCar()" >-->
                      <form #carform ="ngForm" id="login-form" class="form" (ngSubmit)="addCar()" >
                   
@@ -182,6 +184,17 @@
                                         <br><br>
                                     </div>
                                 </div>-->
+
+                                <div class="row row-space" >
+                                    <div class="col-2"  >
+                                        <div class="input-group" >
+                                            <label class="file-label">Upload Image</label>
+                                           <input type="file" accept="image/*" (change)="onFileChanged($event)" >
+                                            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL" class="img-preview">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
 
                               
                                     

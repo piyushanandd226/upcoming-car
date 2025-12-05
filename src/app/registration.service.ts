@@ -84,7 +84,7 @@ export class RegistrationService {
 
 
   
-   imageUploadfromRemote(imagemodel :Imagemodel): Observable<any>{
+  imageUploadfromRemote(imagemodel: any): Observable<any>{
 
     let tokenstr=sessionStorage.getItem('token1');
    let maintocken=''+'Bearer '+tokenstr+'';

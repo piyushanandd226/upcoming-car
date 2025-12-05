@@ -23,6 +23,7 @@ export class AddcarComponent implements OnInit {
   msg='';
   public selectedFile;
   imgURL: any;
+  uploadedFileName: string = '';
   constructor(private  _service : RegistrationService, private _route : Router,private _http : HttpClient) { }
 
   ngOnInit(): void {
@@ -49,22 +50,70 @@ export class AddcarComponent implements OnInit {
 }
 addCar()
 {
-  this._service.addCarFromRemote(this.car).subscribe(
-    
-    data => {console.log('Response Recived',data)
-    if(data!=null)
-    this._route.navigate(['/table-list'])
-    else
-    error => console.log('Exception ocurred',error)
-    this.msg='bad Request';
+  // If an image is selected, upload it first and then create the car
+  if (this.selectedFile) {
+    this.imagemodel.selectedFile = this.selectedFile;
+    this._service.imageUploadfromRemote(this.imagemodel).subscribe(
+      uploadRes => {
+        console.log('Image upload response', uploadRes);
+        // if backend returned stored image name, set it on car
+        if (uploadRes && uploadRes.imageName) {
+          this.car.imageName = uploadRes.imageName;
+          this.uploadedFileName = uploadRes.imageName;
+        } else if (this.selectedFile && this.selectedFile.name) {
+          this.car.imageName = this.selectedFile.name;
+          this.uploadedFileName = this.selectedFile.name;
+        }
+        // proceed to add car after successful (or fallback) upload
+        this._service.addCarFromRemote(this.car).subscribe(
+          data => {
+            console.log('Response Recived', data);
+            if (data != null) {
+              this._route.navigate(['/table-list']);
+            }
+          },
+          error => {
+            console.error('Exception occurred while adding car', error);
+            this.msg = 'Bad Request';
+          }
+        );
+      },
+      err => {
+        console.error('Image upload failed, still attempting to add car', err);
+        // try to add car even if upload failed
+        this._service.addCarFromRemote(this.car).subscribe(
+          data => {
+            console.log('Response Recived', data);
+            if (data != null) {
+              this._route.navigate(['/table-list']);
+            }
+          },
+          error => {
+            console.error('Exception occurred while adding car', error);
+            this.msg = 'Bad Request';
+          }
+        );
+      }
+    );
+  } else {
+    // No image selected — just add car
+    this._service.addCarFromRemote(this.car).subscribe(
+      data => {
+        console.log('Response Recived', data);
+        if (data != null) this._route.navigate(['/table-list']);
+      },
+      error => {
+        console.error('Exception occurred', error);
+        this.msg = 'Bad Request';
+      }
+    );
   }
-
-  )
 
 }
 public onFileChanged(event:any) {
   console.log(event);
   this.selectedFile = event.target.files[0];
+  this.uploadedFileName = this.selectedFile ? this.selectedFile.name : '';
 
   // Below part is used to display the selected image
   let reader = new FileReader();

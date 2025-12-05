@@ -67,8 +67,11 @@
             <td> {{ car.price }} </td>
 			<!--<td><img alt="" th:src="*{'data:image/jpeg;base64,'+{cars.imagemodel}}" style="width: 100px;height: 100px;"></td>-->
 			<br >
-          <td ><img src="/assets/img/car_0.jpg" height="100px" width="100px">
-           </td>
+					<td >
+						<img *ngIf="car.retrievedImage" [src]="car.retrievedImage" height="100" width="100" />
+						<img *ngIf="!car.retrievedImage && car.imageName" [src]="'http://localhost:8091/cars/imageName/'+car.imageName" height="100" width="100" />
+						<img *ngIf="!car.retrievedImage && !car.imageName" src="/assets/img/car_0.jpg" height="100" width="100" />
+					</td>
             <td>
 				<button (click) = "updateCar(car.carId)" class = "btn btn-info"> Update</button>
                 <button (click) = "deleteCar(car.carId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
