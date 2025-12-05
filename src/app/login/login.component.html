@@ -4,113 +4,124 @@
         <div></div>
         <div></div>
     </div>
-</div>  
+</div>
 <!-- ***** Preloader End ***** -->
 
 <!-- Header -->
 <header class="">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><h2>UPCOMING<em>CAR</em></h2></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/addcar']">New Car</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-          <!--<li class="nav-item">
-           <a [routerLink]="['/registration']" class="nav-link">Register</a>
-          </li>-->
-        </ul>
-        
-      </div>
-      <div >
-        <ul>
-            &nbsp;&nbsp;
-            <li><a href="#">Log in</a></li>
-          <li><a [routerLink]="['/registration']">Sign Up</a></li>
-          </ul>
-       
-      </div>
-     
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><h2>UPCOMING<em>CAR</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/addcar']">New Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <ul>
+                    &nbsp;&nbsp;
+                    <li><a href="#">Log in</a></li>
+                    <li><a [routerLink]="['/registration']">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
-    <div id="login">
-        <div class="login-wrapper">
-            <div class="container-fluid">
-                <div id="login-row" class="row justify-content-center align-items-center min-vh-100">
-                    <div id="login-column" class="col-lg-5 col-md-6 col-sm-8 col-10">
-                        <div id="login-box" class="card shadow-lg rounded-lg">
-                            <div class="card-header text-center bg-gradient text-white rounded-top">
-                                <h3 class="mb-1 fw-700">Welcome Back</h3>
-                                <p class="small mb-0 opacity-85">Sign in to your account</p>
-                            </div>
-                            <div class="card-body">
-                                <form #loginform="ngForm" id="login-form" class="form" (ngSubmit)="doLogin()">
-                                    <small class="text-danger d-block mb-3" *ngIf="msg">{{ msg }}</small>
-                                    
-                                    <div class="form-group mb-3">
-                                        <label for="username" class="form-label fw-600">Username</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                            <input type="text" name="username" id="username" class="form-control form-control-modern" 
-                                                placeholder="Enter your username" [(ngModel)]="user.username" required 
-                                                #username="ngModel" [ngClass]="{ 'is-invalid': loginform.submitted && username.invalid }">
-                                        </div>
-                                    </div>
+<div id="login">
+    <div class="login-wrapper">
+        <div class="container-fluid">
+            <div id="login-row" class="row justify-content-center align-items-center min-vh-100">
+                <div id="login-column" class="col-lg-5 col-md-6 col-sm-8 col-10">
+                    <div id="login-box" class="card shadow-lg rounded-lg">
 
-                                    <div class="form-group mb-3">
-                                        <label for="password" class="form-label fw-600">Password</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                            <input type="password" name="password" id="password" class="form-control form-control-modern" 
-                                                placeholder="Enter your password" [(ngModel)]="user.password" required 
-                                                #password="ngModel" [ngClass]="{ 'is-invalid': loginform.submitted && password.invalid }" 
-                                                minlength="10">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me">
-                                        <label class="form-check-label" for="remember-me">
-                                            Remember me
-                                        </label>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary w-100 fw-600 mb-3">Sign In</button>
-
-                                    <div id="register-link" class="text-center">
-                                        <p class="small mb-2">Don't have an account? 
-                                            <a [routerLink]="['/registration']" class="text-primary fw-600">Register here</a>
-                                        </p>
-                                        <div class="mt-3 pt-3 border-top">
-                                            <a [routerLink]="['/notification']" class="btn btn-sm btn-outline-secondary me-2">Notifications</a>
-                                            <a [routerLink]="['/addcar']" class="btn btn-sm btn-outline-secondary">Add Car</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <!-- HEADER -->
+                        <div class="card-header text-center bg-gradient text-white rounded-top">
+                            <h3 class="mb-1 fw-700">Welcome Back</h3>
+                            <p class="small mb-0 opacity-85">Sign in to your account</p>
                         </div>
+
+                        <!-- BODY -->
+                        <div class="card-body">
+                            <form #loginform="ngForm" id="login-form" class="form" (ngSubmit)="doLogin()">
+                                <small class="text-danger d-block mb-3" *ngIf="msg">{{ msg }}</small>
+
+                                <!-- Username -->
+                                <div class="form-group mb-3">
+                                    <label for="username" class="form-label fw-600">Username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" name="username" id="username"
+                                               class="form-control form-control-modern"
+                                               placeholder="Enter your username"
+                                               [(ngModel)]="user.username"
+                                               required #username="ngModel"
+                                               [ngClass]="{ 'is-invalid': loginform.submitted && username.invalid }">
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-group mb-3">
+                                    <label for="password" class="form-label fw-600">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" name="password" id="password"
+                                               class="form-control form-control-modern"
+                                               placeholder="Enter your password"
+                                               [(ngModel)]="user.password"
+                                               required minlength="10"
+                                               #password="ngModel"
+                                               [ngClass]="{ 'is-invalid': loginform.submitted && password.invalid }">
+                                    </div>
+                                </div>
+
+                                <!-- Remember Me -->
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me">
+                                    <label class="form-check-label" for="remember-me">Remember me</label>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-primary w-100 fw-600 mb-3">Sign In</button>
+
+                                <!-- Links -->
+                                <div id="register-link" class="text-center">
+                                    <p class="small mb-2">
+                                        Don't have an account?
+                                        <a [routerLink]="['/registration']" class="text-primary fw-600">Register here</a>
+                                    </p>
+
+                                    <div class="mt-3 pt-3 border-top">
+                                        <a [routerLink]="['/notification']" class="btn btn-sm btn-outline-secondary me-2">Notifications</a>
+                                        <a [routerLink]="['/addcar']" class="btn btn-sm btn-outline-secondary">Add Car</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
         <footer class="login-footer">
             <p>&copy; 2025 piyushkumaranand. All rights reserved.</p>
         </footer>
     </div>
+</div>
