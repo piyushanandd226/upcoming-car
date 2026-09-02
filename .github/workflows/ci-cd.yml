@@ -32,8 +32,6 @@ jobs:
 
       - name: Build production bundle
         run: npm run build -- --configuration production --base-href "/${{ github.event.repository.name }}/"
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Upload production bundle
         uses: actions/upload-pages-artifact@v3
