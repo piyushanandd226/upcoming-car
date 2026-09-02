@@ -1,0 +1,5 @@
+name = "upcoming-carv1"
+compatibility_date = "2026-09-02"
+
+[assets]
+directory = "./dist/upcoming-car"
