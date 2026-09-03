@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "set \"NODE_OPTIONS=--openssl-legacy-provider\" && ng serve",
-    "build": "ng build",
+    "start": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve",
+    "build": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng build",
+    "build:production": "npm run build -- --configuration production",
     "test": "node run-tests.js",
     "test:watch": "ng test",
     "lint": "ng lint",
