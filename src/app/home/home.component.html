@@ -1,104 +1,87 @@
-<!-- ***** Preloader Start ***** -->
-<div id="preloader">
-  <div class="jumper">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</div>
-<!-- ***** Preloader End ***** -->
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Primary navigation">
+    <a class="brand" routerLink="/home" aria-label="Upcoming Car home">
+      <span class="brand-mark" aria-hidden="true">UC</span>
+      <span>UPCOMING <strong>CAR</strong></span>
+    </a>
 
-<!-- Header -->
-<header class="">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><h2>UPCOMING<em>CAR</em></h2></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/addcar']">New Car</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a [routerLink]="['/notification']" class="nav-link">Inbox</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li><a href="#">Log in</a></li>
-          <li><a [routerLink]="['/registration']">Sign Up</a></li>
-        </ul>
-      </div>
-      &nbsp;&nbsp;
-      <a [routerLink]="['/table-list']" class="notification">
-        <span>Notification</span>
-        <span class="badge">5</span>
-      </a>
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-controls="primary-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+
+    <div class="nav-links" id="primary-menu" [class.is-open]="isMenuOpen">
+      <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Explore cars</a>
+      <a routerLink="/addcar" routerLinkActive="is-active" (click)="closeMenu()">List a car</a>
+      <a routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Updates <span class="unread-count" aria-label="5 unread updates">5</span></a>
+      <a class="nav-account" routerLink="/login" (click)="closeMenu()">Sign in</a>
     </div>
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-overlay">
-    <div class="container hero-content text-center">
-      <h1 class="display-4">Discover Upcoming Cars</h1>
-      <p class="lead">Stay ahead with specs, release dates and exclusive previews.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary mr-2" [routerLink]="['/table-list']">Browse Cars</a>
-        <a class="btn btn-outline-light" [routerLink]="['/addcar']">Add New Car</a>
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-scrim"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">THE ROAD AHEAD, CURATED</p>
+      <h1 id="hero-title">Meet your next<br><span>great drive.</span></h1>
+      <p class="hero-copy">The simplest way to follow the cars that are about to change the road—from first reveal to first delivery.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" routerLink="/table-list">Explore upcoming cars <span aria-hidden="true">→</span></a>
+        <a class="button button-quiet" routerLink="/addcar">Add a listing</a>
       </div>
+      <dl class="hero-stats" aria-label="Upcoming Car highlights">
+        <div><dt>New releases</dt><dd>Updated weekly</dd></div>
+        <div><dt>Full specifications</dt><dd>In one place</dd></div>
+        <div><dt>Personal watchlist</dt><dd>Never miss a reveal</dd></div>
+      </dl>
     </div>
-  </div>
-</section>
+    <a class="scroll-cue" href="#why-upcoming" aria-label="Learn more about Upcoming Car"><span></span>Scroll to explore</a>
+  </section>
 
-<!-- Features -->
-<section class="features py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="feature-card card h-100 text-center p-3">
-          <div class="card-body">
-            <h5 class="card-title">Browse Cars</h5>
-            <p class="card-text">Explore upcoming models with specs and images.</p>
-            <a class="btn btn-sm btn-primary" [routerLink]="['/table-list']">Explore</a>
-          </div>
-        </div>
+  <section class="experience-section" id="why-upcoming" aria-labelledby="experience-title">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">BUILT FOR THE CURIOUS</p>
+        <h2 id="experience-title">A clearer view of what’s next.</h2>
+        <p>Everything you need to compare, track, and get excited about the next generation of cars.</p>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="feature-card card h-100 text-center p-3">
-          <div class="card-body">
-            <h5 class="card-title">Add New</h5>
-            <p class="card-text">Contribute a new car listing quickly.</p>
-            <a class="btn btn-sm btn-primary" [routerLink]="['/addcar']">Add Car</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="feature-card card h-100 text-center p-3">
-          <div class="card-body">
-            <h5 class="card-title">Notifications</h5>
-            <p class="card-text">Receive updates and messages in your inbox.</p>
-            <a class="btn btn-sm btn-primary" [routerLink]="['/notification']">Inbox</a>
-          </div>
-        </div>
+      <div class="feature-grid">
+        <article class="feature-card feature-card-dark">
+          <span class="feature-number">01</span>
+          <div class="feature-icon" aria-hidden="true">⌁</div>
+          <h3>Discover with confidence</h3>
+          <p>Browse new models, key specifications, and launch information without the clutter.</p>
+          <a routerLink="/table-list">Browse the collection <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">02</span>
+          <div class="feature-icon" aria-hidden="true">✦</div>
+          <h3>Keep every detail close</h3>
+          <p>Get timely updates on the models and announcements that matter to you.</p>
+          <a routerLink="/notification">View your updates <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card feature-card-accent">
+          <span class="feature-number">03</span>
+          <div class="feature-icon" aria-hidden="true">＋</div>
+          <h3>Share what’s coming</h3>
+          <p>Know a remarkable car on the horizon? Add it and help grow the catalogue.</p>
+          <a routerLink="/addcar">Create a listing <span aria-hidden="true">→</span></a>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="browse-banner">
+    <div class="container browse-banner-content">
+      <div>
+        <p class="eyebrow">START EXPLORING</p>
+        <h2>There’s always<br>something ahead.</h2>
+      </div>
+      <a class="button button-light" routerLink="/table-list">See all upcoming cars <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
 
 <router-outlet></router-outlet>
