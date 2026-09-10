@@ -7,7 +7,7 @@
         <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
         <a href="#platform" (click)="closeMenu()">About Us</a>
         <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Cars</a>
-        <a routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
+        <a class="contact-link" routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
       </div>
       <label class="search-field"><span class="sr-only">Search cars</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search cars..."></label>
       <div class="account-links"><a routerLink="/login" (click)="closeMenu()">Log in</a><a class="signup-link" routerLink="/registration" (click)="closeMenu()">Sign Up</a></div>
@@ -46,5 +46,3 @@
     </div>
   </section>
 </main>
-
-<router-outlet></router-outlet>
