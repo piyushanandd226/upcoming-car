@@ -6,6 +6,7 @@
 /* Give the contact route the prominent call-to-action treatment from the reference. */
 .nav-links .contact-link { padding:11px 16px; border-radius:22px; background:#13baf6; color:#fff; box-shadow:0 6px 16px rgba(19,186,246,.22); }
 .nav-links .contact-link:hover, .nav-links .contact-link.is-active { background:#087df5; color:#fff; }
+.site-footer { padding:25px; background:#0f1c15; color:#cbd6ca; font-size:13px; text-align:center; }
 
 /* Moving road scene: the car is a real project image, while the road markings provide motion depth. */
 .hero-background { overflow:hidden; background:linear-gradient(180deg,rgba(224,242,219,.88) 0 48%,rgba(53,74,55,.86) 48% 100%),linear-gradient(105deg,#a5c9a2,#d9ebc8 48%,#789369); filter:saturate(.9); }

@@ -5,7 +5,7 @@
     <div class="nav-content" id="primary-menu" [class.is-open]="isMenuOpen">
       <div class="nav-links">
         <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
-        <a href="#platform" (click)="closeMenu()">About Us</a>
+        <a routerLink="/about" (click)="closeMenu()">About Us</a>
         <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Cars</a>
         <a class="contact-link" routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
       </div>
@@ -50,4 +50,5 @@
       <a class="text-link" routerLink="/addcar">Add a new car <span aria-hidden="true">→</span></a>
     </div>
   </section>
+  <footer class="site-footer">© 2026 Piyush Kumar Anand. All rights reserved.</footer>
 </main>

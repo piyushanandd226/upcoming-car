@@ -22,6 +22,7 @@ import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     TableListComponent,
     TypographyComponent,
     UpgradeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
