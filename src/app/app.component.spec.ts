@@ -34,11 +34,9 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.app-container')).not.toBeNull();
   });
 
-  it('should initialize with login section visible', () => {
-    expect(app.isLoggedIn).toBeFalsy();
-  });
-
-  it('should have empty user object', () => {
-    expect(app.user).toEqual({});
+  it('should provide a router outlet for page content', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });

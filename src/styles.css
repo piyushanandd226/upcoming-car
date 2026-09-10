@@ -7,3 +7,7 @@
 }*/
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.page-menu { display:flex; align-items:center; gap:18px; }
+.page-menu a { color:#4f5e56; text-decoration:none; font-size:14px; font-weight:700; }
+.page-menu .menu-cta { padding:10px 14px; border-radius:20px; background:#143f88; color:#fff; }
+@media (max-width:700px) { .page-menu a:not(.menu-cta) { display:none; } }

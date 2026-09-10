@@ -10,15 +10,17 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
+import { AboutComponent } from './about/about.component';
 
 
 
 const routes: Routes = [
 
-{path:'',redirectTo:"login",pathMatch:"full"},  
+{path:'',redirectTo:"home",pathMatch:"full"},
 //{ path: 'default',component: DefaultComponent},
 {path:'login',component:LoginComponent},
 {path:'home',component:HomeComponent},
+{path:'about',component:AboutComponent},
 {path:'registration',component:RegistrationComponent},
 {path:'imageupload',component:ImageuploadComponent},
 {path:'notification',component:NotificationsComponent},
