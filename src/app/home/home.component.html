@@ -1,85 +1,48 @@
 <header class="site-header">
   <nav class="site-nav container" aria-label="Primary navigation">
-    <a class="brand" routerLink="/home" aria-label="Upcoming Car home">
-      <span class="brand-mark" aria-hidden="true">UC</span>
-      <span>UPCOMING <strong>CAR</strong></span>
-    </a>
-
-    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-controls="primary-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-    </button>
-
-    <div class="nav-links" id="primary-menu" [class.is-open]="isMenuOpen">
-      <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
-      <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Explore cars</a>
-      <a routerLink="/addcar" routerLinkActive="is-active" (click)="closeMenu()">List a car</a>
-      <a routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Updates <span class="unread-count" aria-label="5 unread updates">5</span></a>
-      <a class="nav-account" routerLink="/login" (click)="closeMenu()">Sign in</a>
+    <a class="brand" routerLink="/home" aria-label="Upcoming Cars home"><span class="brand-icon">⌁</span><span>Upcoming <strong>Cars</strong></span></a>
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-controls="primary-menu"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+    <div class="nav-content" id="primary-menu" [class.is-open]="isMenuOpen">
+      <div class="nav-links">
+        <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+        <a href="#platform" (click)="closeMenu()">About Us</a>
+        <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Cars</a>
+        <a routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
+      </div>
+      <label class="search-field"><span class="sr-only">Search cars</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search cars..."></label>
+      <div class="account-links"><a routerLink="/login" (click)="closeMenu()">Log in</a><a class="signup-link" routerLink="/registration" (click)="closeMenu()">Sign Up</a></div>
     </div>
   </nav>
 </header>
 
 <main>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-scrim"></div>
-    <div class="container hero-content">
-      <p class="eyebrow">THE ROAD AHEAD, CURATED</p>
-      <h1 id="hero-title">Meet your next<br><span>great drive.</span></h1>
-      <p class="hero-copy">The simplest way to follow the cars that are about to change the road—from first reveal to first delivery.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" routerLink="/table-list">Explore upcoming cars <span aria-hidden="true">→</span></a>
-        <a class="button button-quiet" routerLink="/addcar">Add a listing</a>
-      </div>
-      <dl class="hero-stats" aria-label="Upcoming Car highlights">
-        <div><dt>New releases</dt><dd>Updated weekly</dd></div>
-        <div><dt>Full specifications</dt><dd>In one place</dd></div>
-        <div><dt>Personal watchlist</dt><dd>Never miss a reveal</dd></div>
-      </dl>
-    </div>
-    <a class="scroll-cue" href="#why-upcoming" aria-label="Learn more about Upcoming Car"><span></span>Scroll to explore</a>
-  </section>
-
-  <section class="experience-section" id="why-upcoming" aria-labelledby="experience-title">
-    <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">BUILT FOR THE CURIOUS</p>
-        <h2 id="experience-title">A clearer view of what’s next.</h2>
-        <p>Everything you need to compare, track, and get excited about the next generation of cars.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card feature-card-dark">
-          <span class="feature-number">01</span>
-          <div class="feature-icon" aria-hidden="true">⌁</div>
-          <h3>Discover with confidence</h3>
-          <p>Browse new models, key specifications, and launch information without the clutter.</p>
-          <a routerLink="/table-list">Browse the collection <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="feature-card">
-          <span class="feature-number">02</span>
-          <div class="feature-icon" aria-hidden="true">✦</div>
-          <h3>Keep every detail close</h3>
-          <p>Get timely updates on the models and announcements that matter to you.</p>
-          <a routerLink="/notification">View your updates <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="feature-card feature-card-accent">
-          <span class="feature-number">03</span>
-          <div class="feature-icon" aria-hidden="true">＋</div>
-          <h3>Share what’s coming</h3>
-          <p>Know a remarkable car on the horizon? Add it and help grow the catalogue.</p>
-          <a routerLink="/addcar">Create a listing <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
+    <div class="hero-background"></div>
+    <div class="container hero-layout">
+      <p class="launch-pill"><span></span> Live launch signal <b>96%</b></p>
+      <article class="hero-panel">
+        <p class="eyebrow">CAR CRM · EV RETAIL · LUXURY WORKFLOWS</p>
+        <h1 id="hero-title">Discover<br>The Future<br>Of Driving</h1>
+        <p class="hero-copy">Manage premium vehicle leads, EV inventory and luxury sales journeys.</p>
+        <div class="hero-actions"><a class="button button-primary" routerLink="/table-list">Explore Cars <span aria-hidden="true">→</span></a><a class="button button-secondary" routerLink="/table-list">Compare Models</a></div>
+      </article>
+      <aside class="signal-card" aria-label="Featured launch signal">
+        <p class="mini-pill"><span></span> Live launch signal</p>
+        <h2>Porsche Taycan<br>Turbo GT</h2>
+        <p>High-intent EV buyers are comparing range, charging confidence, and premium performance this week.</p>
+        <div class="signal-bars" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="signal-progress"><span></span></div>
+        <dl><div><dt>Intent</dt><dd>96%</dd></div><div><dt>SLA</dt><dd>4m</dd></div></dl>
+      </aside>
+      <p class="insight-list">Electric range insights<br>Launch timelines</p>
     </div>
   </section>
 
-  <section class="browse-banner">
-    <div class="container browse-banner-content">
-      <div>
-        <p class="eyebrow">START EXPLORING</p>
-        <h2>There’s always<br>something ahead.</h2>
-      </div>
-      <a class="button button-light" routerLink="/table-list">See all upcoming cars <span aria-hidden="true">→</span></a>
+  <section class="platform-section" id="platform" aria-labelledby="platform-title">
+    <div class="container platform-grid">
+      <div><p class="eyebrow">DESIGNED FOR WHAT'S NEXT</p><h2 id="platform-title">Move from interest<br>to ignition.</h2></div>
+      <p class="platform-copy">Track future-ready cars, compare the details that matter, and get closer to the drive you have been waiting for.</p>
+      <a class="text-link" routerLink="/addcar">Add a new car <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </main>
