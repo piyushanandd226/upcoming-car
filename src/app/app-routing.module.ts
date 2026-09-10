@@ -15,7 +15,7 @@ import { TypographyComponent } from './typography/typography.component';
 
 const routes: Routes = [
 
-{path:'',redirectTo:"login",pathMatch:"full"},  
+{path:'',redirectTo:"home",pathMatch:"full"},
 //{ path: 'default',component: DefaultComponent},
 {path:'login',component:LoginComponent},
 {path:'home',component:HomeComponent},

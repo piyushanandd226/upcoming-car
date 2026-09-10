@@ -7,7 +7,7 @@
         <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
         <a href="#platform" (click)="closeMenu()">About Us</a>
         <a routerLink="/table-list" routerLinkActive="is-active" (click)="closeMenu()">Cars</a>
-        <a routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
+        <a class="contact-link" routerLink="/notification" routerLinkActive="is-active" (click)="closeMenu()">Contact Us</a>
       </div>
       <label class="search-field"><span class="sr-only">Search cars</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search cars..."></label>
       <div class="account-links"><a routerLink="/login" (click)="closeMenu()">Log in</a><a class="signup-link" routerLink="/registration" (click)="closeMenu()">Sign Up</a></div>
@@ -17,7 +17,12 @@
 
 <main>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-background"></div>
+    <div class="hero-background" aria-hidden="true">
+      <span class="road-roadmark road-roadmark-one"></span>
+      <span class="road-roadmark road-roadmark-two"></span>
+      <span class="road-roadmark road-roadmark-three"></span>
+    </div>
+    <img class="driving-car" src="/assets/img/car_0.jpg" alt="" aria-hidden="true">
     <div class="container hero-layout">
       <p class="launch-pill"><span></span> Live launch signal <b>96%</b></p>
       <article class="hero-panel">
@@ -46,5 +51,3 @@
     </div>
   </section>
 </main>
-
-<router-outlet></router-outlet>
